@@ -20,13 +20,19 @@ Pod::Spec.new do |s|
 
   s.ios.deployment_target = "9.0"
 
-  s.source = { :http => "https://github.com/lokalise/lokalise-ios-framework/releases/download/0.10.2/Lokalise.xcframework.0.10.2.zip" }
+  s.source = {
+    :http => "https://github.com/lokalise/lokalise-ios-framework/releases/download/0.10.2/Lokalise.xcframework.0.10.2.zip",
+    :type => "zip",
+    :sha256 => "9e7c9ede0cc2092d3b86538e0b5c2244ed1d2f32323188a45f1dd06366a68be6"
+  }
 
-  s.ios.vendored_frameworks = "Lokalise.xcframework"
+  s.vendored_frameworks = "Lokalise.xcframework"
+  s.preserve_paths =  'Lokalise.xcframework/*'
+  s.source_files = 'Lokalise.xcframework/**/Headers/*.h'
 
-  s.frameworks   = 'Foundation'
+  s.frameworks   = 'Foundation', 'Lokalise'
   s.libraries    = 'c++', 'z'
 
-  s.xcconfig = { "HEADER_SEARCH_PATHS" => "$(inherited)" }
+  s.xcconfig = { 'FRAMEWORK_SEARCH_PATHS' => '"$(PODS_ROOT)/Lokalise/"' }
 
 end
