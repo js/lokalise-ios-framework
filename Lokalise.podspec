@@ -27,12 +27,8 @@ Pod::Spec.new do |s|
   }
 
   s.vendored_frameworks = "Lokalise.xcframework"
-  s.preserve_paths =  'Lokalise.xcframework/*'
-  s.source_files = 'Lokalise.xcframework/**/Headers/*.h'
 
-  s.frameworks   = 'Foundation', 'Lokalise'
+  s.frameworks   = 'Foundation'
   s.libraries    = 'c++', 'z'
-
-  s.xcconfig = { 'FRAMEWORK_SEARCH_PATHS' => '"$(PODS_ROOT)/Lokalise/"' }
 
 end
